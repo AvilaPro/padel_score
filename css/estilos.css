@@ -1,0 +1,63 @@
+*{
+    font-family: 'Segoe UI';
+}
+#marcador{
+    background: rgb(67, 66, 66);
+    color: white;
+    display: grid;
+    grid-template-areas: 'teams ball sets games points';
+    grid-template-columns: 35% 5% 20% 20% 20%;
+    grid-template-rows: 15vh 35vh 35vh;
+}
+.teams{
+    grid-area: 'teams';
+}
+.ball{
+    grid-area: 'ball';
+}
+.sets{
+    grid-area: 'sets';
+}
+.games{
+    grid-area: 'games';
+}
+.points{
+    grid-area: 'points';
+}
+.sumador{
+    height: 90%;
+    width: 100%;
+    padding: 15px;
+    border-radius: 15px;
+    font-weight: bold;
+    font-size: 4em;
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.sumador:hover{
+    cursor: pointer;
+    filter: grayscale(0.2);
+}
+.team1{
+    background: rgb(6, 99, 237);
+}
+.t1{
+    color: rgb(6, 99, 237);
+    font-weight: bold;
+    font-size: 2em;
+}
+.team2{
+    background: orangered;
+}
+.t2{
+    color: orangered;
+    font-weight: bold;
+    font-size: 2em;
+}
+@media screen and (max-width: 700px) {
+    #title{
+        display: none;
+    }
+}

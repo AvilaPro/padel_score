@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS 2</title>
+    <link rel="stylesheet" href="./css/estilos.css">
+</head>
+<body onclick="alert('diste click')">
+    <h1 id="title">Marcador de Padel</h1>
+    <a href="https://www.cadif1.com" onclick="capturarEvento(event)">Ir a cadi</a>
+    <form action="" method="get" onsubmit="evitar(event)">
+        <input type="text" name="nombre" id="">
+        <input type="submit" value="enviar" onclick="event.stopPropagation()">
+    </form>
+    <main>
+        <section id="marcador">
+                <!-- Fila 1 -->
+                <div class="teams">0:00</div>
+                <div class="ball"></div>
+                <div class="sets">SETS</div>
+                <div class="games">GAMES</div>
+                <div class="points">POINTS</div>
+                <!-- fila 2 -->
+                <div class="teams t1">Team 1</div>
+                <div class="balls t1">b</div>
+                <div id="sets1" class="sets t1">0</div>
+                <div id="games1" class="games t1">0</div>
+                <div id="pts1" class="points sumador team1" onclick="sumarPunto(event, 1)">00</div>
+                <!-- fila 3 -->
+                <div class="teams t2">Team 2</div>
+                <div class="balls t2">b</div>
+                <div id="sets2" class="sets t2">0</div>
+                <div id="games2" class="games t2">0</div>
+                <div id="pts2" class="points sumador team2" onclick="sumarPunto(event, 2)">00</div>
+        </section>
+    </main>
+
+
+    <script src="./js/main.js"></script>
+</body>
+</html>
