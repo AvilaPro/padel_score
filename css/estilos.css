@@ -1,6 +1,33 @@
 *{
     font-family: 'Segoe UI';
 }
+/*Header*/
+.btnHeader{
+    padding: 0.5em 0.75em;
+    border: none;
+    border-radius: 10px;
+    background-color: cadetblue;
+    color: white;
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
+}
+#btnUp{
+    position: fixed;
+    bottom: 35px;
+    right: 35px;
+    border: none;
+    background-color: red;
+    color: white;
+    font-weight: bold;
+    border-radius: 20px;
+    padding: 12px;
+    z-index: 1000;
+}
+
+/*Fin Header*/
+
+/*Marcador*/
 #marcador{
     background: rgb(67, 66, 66);
     color: white;

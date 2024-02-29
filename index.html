@@ -6,13 +6,22 @@
     <title>JS 2</title>
     <link rel="stylesheet" href="./css/estilos.css">
 </head>
-<body onclick="alert('diste click')">
-    <h1 id="title">Marcador de Padel</h1>
-    <a href="https://www.cadif1.com" onclick="capturarEvento(event)">Ir a cadi</a>
+<body>
+    <header style="display: flex; justify-content: space-around; align-items: center;">
+        <h1 id="title">Marcador de Padel</h1>
+        <div style="width: 70%; display: flex; justify-content: space-around; align-items: center;">
+            <button class="btnHeader">FVP</button>
+            <button class="btnHeader">Idioma</button>
+            <button class="btnHeader">Print</button>
+            <button class="btnHeader">Atras</button>
+            <button id="btnUp">UP</button>
+        </div>
+    </header>
+    <!-- <a href="https://www.cadif1.com" onclick="capturarEvento(event)">Ir a cadi</a>
     <form action="" method="get" onsubmit="evitar(event)">
         <input type="text" name="nombre" id="">
         <input type="submit" value="enviar" onclick="event.stopPropagation()">
-    </form>
+    </form> -->
     <main>
         <section id="marcador">
                 <!-- Fila 1 -->
@@ -34,6 +43,7 @@
                 <div id="games2" class="games t2">0</div>
                 <div id="pts2" class="points sumador team2" onclick="sumarPunto(event, 2)">00</div>
         </section>
+        <section style="height: 1000px;"></section>
     </main>
 
 
