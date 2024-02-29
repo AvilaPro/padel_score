@@ -80,3 +80,25 @@ function evitar(e) {
     e.preventDefault();
     e.stopPropagation();
 }
+
+/**
+ * Clase 2 Cap 6
+ */
+//Probando: open, write, close
+function testOpen() {
+    document.open();
+    document.write("<h1>Hola Mundo</h1>");
+    document.close();
+}
+function inner() {
+    let auxInner = document.body.innerHTML;
+    document.body.innerHTML = "<h1>Hola Mundo</h1>" + auxInner;
+}
+/**
+ * Clase 2 Cap 7
+ */
+function manejarApertura() {
+    if(window.opener != null){
+        document.body.innerHTML += '\n <button onclick="window.close()" class="btnHeader">Cerrar</button><br><button onclick="window.opener.location=`https://www.cadif1.com`;window.close();" class="btnHeader">Cambiar index</button>'
+    }
+}

@@ -1,27 +1,37 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>JS 2</title>
     <link rel="stylesheet" href="./css/estilos.css">
 </head>
-<body>
+<body onscroll="
+console.log('outer: ' + window.outerHeight);
+console.log('inner: ' + window.innerHeight);
+console.log('screenY: ' + window.screenY);
+console.log('screen.width: ' + screen.width);
+console.log('screen.height: ' + screen.height);
+console.log('screen.availWidth: ' + screen.availWidth);
+console.log('screen.availHeight: ' + screen.availHeight);
+">
     <header style="display: flex; justify-content: space-around; align-items: center;">
         <h1 id="title">Marcador de Padel</h1>
         <div style="width: 70%; display: flex; justify-content: space-around; align-items: center;">
-            <button class="btnHeader">FVP</button>
-            <button class="btnHeader">Idioma</button>
-            <button class="btnHeader">Print</button>
-            <button class="btnHeader">Atras</button>
-            <button id="btnUp">UP</button>
+            <button class="btnHeader" onclick="window.location='https://federacionvenezolanadepadel.com/'">FVP</button>
+            <button class="btnHeader" onclick="if(window.navigator.language.slice(0,2) == 'es'){ window.location='./webEs.html' }">Idioma</button>
+            <button class="btnHeader" onclick="window.print()">Print</button>
+            <button class="btnHeader" onclick="window.history.forward()">Atras</button>
+            <button id="btnUp" onclick="window.scrollTo({top: 0, left: 0, behavior: 'smooth'})">UP</button>
+            <button class="btnHeader" onclick="testOpen()">Open</button>
+            <button class="btnHeader" onclick="inner()">inner</button>
+            <button class="btnHeader" onclick="window.open('./webES.html', '', `width=${screen.width/2}, height=${screen.availHeight / 2}`)">Abrir Open</button>
         </div>
     </header>
     <!-- <a href="https://www.cadif1.com" onclick="capturarEvento(event)">Ir a cadi</a>
     <form action="" method="get" onsubmit="evitar(event)">
         <input type="text" name="nombre" id="">
         <input type="submit" value="enviar" onclick="event.stopPropagation()">
-    </form> -->
     </form> -->
     <main>
         <section id="marcador">
