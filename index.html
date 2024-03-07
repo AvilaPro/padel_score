@@ -1,11 +1,14 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>JS 2</title>
     <link rel="stylesheet" href="./css/estilos.css">
+    <script src="https://cdn.lordicon.com/lordicon.js"></script>
 </head>
+
 <body onscroll="
 console.log('outer: ' + window.outerHeight);
 console.log('inner: ' + window.innerHeight);
@@ -15,19 +18,28 @@ console.log('screen.height: ' + screen.height);
 console.log('screen.availWidth: ' + screen.availWidth);
 console.log('screen.availHeight: ' + screen.availHeight);
 ">
-    <header style="display: flex; justify-content: space-around; align-items: center;">
+    <header id="header" style="display: flex; justify-content: space-around; align-items: center;">
         <h1 id="title">Marcador de Padel</h1>
         <div style="width: 70%; display: flex; justify-content: space-around; align-items: center;">
             <button class="btnHeader" onclick="window.location='https://federacionvenezolanadepadel.com/'">FVP</button>
-            <button class="btnHeader" onclick="if(window.navigator.language.slice(0,2) == 'es'){ window.location='./webEs.html' }">Idioma</button>
+            <button class="btnHeader"
+                onclick="if(window.navigator.language.slice(0,2) == 'es'){ window.location='./webEs.html' }">Idioma</button>
             <button class="btnHeader" onclick="window.print()">Print</button>
             <button class="btnHeader" onclick="window.history.forward()">Atras</button>
             <button id="btnUp" onclick="window.scrollTo({top: 0, left: 0, behavior: 'smooth'})">UP</button>
             <button class="btnHeader" onclick="testOpen()">Open</button>
             <button class="btnHeader" onclick="inner()">inner</button>
-            <button class="btnHeader" onclick="window.open('./webES.html', '', `width=${screen.width/2}, height=${screen.availHeight / 2}`)">Abrir Open</button>
+            <button class="btnHeader"
+                onclick="window.open('./webES.html', '', `width=${screen.width/2}, height=${screen.availHeight / 2}`)">Abrir
+                Open</button>
         </div>
     </header>
+    <form action="" name="nameTeam" style="display: none;">
+        <input name="name" type="text" placeholder="Escribe el nuevo nombre del equipo" size="50">
+        <input type="hidden" name="number">
+        <input type="button" value="Cambiar Nombre" onclick="changeName()">
+    </form>
+    <button id="showHeader" onclick="hiddenHeader()">H</button>
     <!-- <a href="https://www.cadif1.com" onclick="capturarEvento(event)">Ir a cadi</a>
     <form action="" method="get" onsubmit="evitar(event)">
         <input type="text" name="nombre" id="">
@@ -35,24 +47,37 @@ console.log('screen.availHeight: ' + screen.availHeight);
     </form> -->
     <main>
         <section id="marcador">
-                <!-- Fila 1 -->
-                <div class="teams">0:00</div>
-                <div class="ball"></div>
-                <div class="sets">SETS</div>
-                <div class="games">GAMES</div>
-                <div class="points">POINTS</div>
-                <!-- fila 2 -->
-                <div class="teams t1">Team 1</div>
-                <div class="balls t1">b</div>
-                <div id="sets1" class="sets t1">0</div>
-                <div id="games1" class="games t1">0</div>
-                <div id="pts1" class="points sumador team1" onclick="sumarPunto(event, 1)">00</div>
-                <!-- fila 3 -->
-                <div class="teams t2">Team 2</div>
-                <div class="balls t2">b</div>
-                <div id="sets2" class="sets t2">0</div>
-                <div id="games2" class="games t2">0</div>
-                <div id="pts2" class="points sumador team2" onclick="sumarPunto(event, 2)">00</div>
+            <!-- Fila 1 -->
+            <div class="teams">0:00</div>
+            <div class="ball"></div>
+            <div class="sets">SETS</div>
+            <div class="games">GAMES</div>
+            <div class="points">POINTS</div>
+            <!-- fila 2 -->
+            <div class="teams t1">
+                <span id="name1">Team 1</span>
+                <span id="btnName1">
+                    <lord-icon id="btnName1" src="https://cdn.lordicon.com/oqaajvyl.json" trigger="loop" delay="1500" stroke="bold" state="in-dynamic" style="width:25px;height:25px">
+                    </lord-icon>
+                </span>
+            </div>
+            <div class="balls t1">b</div>
+            <div id="sets1" class="sets t1">0</div>
+            <div id="games1" class="games t1">0</div>
+            <div id="pts1" class="points sumador team1" onclick="sumarPunto(event, 1)">00</div>
+            <!-- fila 3 -->
+            <div class="teams t2">
+                <span id="name2">Team 2</span>
+                <span id="btnName2">
+                    <lord-icon src="https://cdn.lordicon.com/oqaajvyl.json" trigger="loop"
+                        delay="1500" stroke="bold" state="in-dynamic" style="width:25px;height:25px">
+                    </lord-icon>
+                </span>
+            </div>
+            <div class="balls t2">b</div>
+            <div id="sets2" class="sets t2">0</div>
+            <div id="games2" class="games t2">0</div>
+            <div id="pts2" class="points sumador team2" onclick="sumarPunto(event, 2)">00</div>
         </section>
         <section style="height: 1000px;"></section>
     </main>
@@ -60,4 +85,5 @@ console.log('screen.availHeight: ' + screen.availHeight);
 
     <script src="./js/main.js"></script>
 </body>
+
 </html>

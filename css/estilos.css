@@ -27,6 +27,20 @@
 #btnUp:hover{
     cursor: pointer;
 }
+#showHeader{
+    background-color: aqua;
+    padding: 12px;
+    border-radius: 20px;
+    border: none;
+    color: white;
+    font-weight: bold;
+    display: none;
+    justify-content: center;
+    align-content: center;
+    position: fixed;
+    top: 25px;
+    right: 35px;
+}
 
 /*Fin Header*/
 

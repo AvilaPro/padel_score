@@ -1,4 +1,9 @@
 /**
+ * Variables globales de utilidad
+ */
+var showHeader = true;
+
+/**
  * Declaracion e inicializacion de variables
  */
 var ptsTeam1 = 0;
@@ -10,13 +15,65 @@ let gamesTeam2 = 0;
 let nameTeam1 = "Equipo A";
 let nameTeam2 = "Equipo B";
 
+/**
+ * Evento de carga de la pagina
+ */
+window.addEventListener("load", () => {
+    document.getElementById("spinner").style.display = "none";
+})
 
+/**
+ * Funcion para mostrar el Header
+ */
+function hiddenHeader() {
+    document.getElementById("header").style.display = "flex";
+    document.getElementById("showHeader").style.display = "none";
+    showHeader = true;
+}
 
+document.getElementById("btnName1").addEventListener("click", () => {
+    formNameTeam(1);
+});
+document.getElementById("btnName2").addEventListener("click", () => {
+    formNameTeam(2);
+});
+
+/**
+ * Funcion para mostrar el formulario de cambio de nombre del equipo
+*/
+function formNameTeam(n){
+    let f = document.nameTeam;
+    f.number.value = n;
+    f.style.display = "block";
+}
+
+/**
+ * Funcion para cambiar el nombre del Team
+ */
+function changeName(){
+    let newName = document.nameTeam.name.value;
+    let number = document.nameTeam.number.value;
+    if (newName != ""){
+        if (number == 1) {
+            document.getElementById("name1").innerHTML = newName;
+        }
+        if (number == 2) {
+            document.getElementById("name2").innerHTML = newName;
+        }
+    }
+    document.nameTeam.reset();
+    document.nameTeam.style.display = "none";
+}
 /**
  * Funcion para la logica de suma de puntos
  */
 function sumarPunto(e, team) {
     e.stopPropagation();
+    if (showHeader) {
+        document.getElementById("header").style.display = "none";
+        document.getElementById("showHeader").style = "display: flex; color: red;";
+        showHeader = !showHeader;
+    }
     if (team == 1) {
         pts1 = document.getElementById("pts1");
         games1 = document.getElementById("games1");
