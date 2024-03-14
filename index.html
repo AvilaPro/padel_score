@@ -9,7 +9,10 @@
     <script src="https://cdn.lordicon.com/lordicon.js"></script>
 </head>
 
-<body onscroll="
+<!-- Spinner de la pagina -->
+<img src="./img/loader.svg" id="spinner" alt="" style="position: absolute; top: 25vh; left: 25vw; width: 25vw; aspect-ratio: 1/1;">
+
+<!-- <body onscroll="
 console.log('outer: ' + window.outerHeight);
 console.log('inner: ' + window.innerHeight);
 console.log('screenY: ' + window.screenY);
@@ -17,7 +20,8 @@ console.log('screen.width: ' + screen.width);
 console.log('screen.height: ' + screen.height);
 console.log('screen.availWidth: ' + screen.availWidth);
 console.log('screen.availHeight: ' + screen.availHeight);
-">
+"> -->
+<body>
     <header id="header" style="display: flex; justify-content: space-around; align-items: center;">
         <h1 id="title">Marcador de Padel</h1>
         <div style="width: 70%; display: flex; justify-content: space-around; align-items: center;">
@@ -79,9 +83,10 @@ console.log('screen.availHeight: ' + screen.availHeight);
             <div id="games2" class="games t2">0</div>
             <div id="pts2" class="points sumador team2" onclick="sumarPunto(event, 2)">00</div>
         </section>
-        <section style="height: 1000px;"></section>
+        <input type="text" placeholder="busqueda" id="busqueda">
+        <section id="seccion2" style="height: 1000px;">
+        </section>
     </main>
-
 
     <script src="./js/main.js"></script>
 </body>

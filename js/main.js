@@ -18,9 +18,13 @@ let nameTeam2 = "Equipo B";
 /**
  * Evento de carga de la pagina
  */
-window.addEventListener("load", () => {
+// window.addEventListener("load", () => {
+//     document.getElementById("spinner").style.display = "none";
+// })
+setTimeout(() => {
     document.getElementById("spinner").style.display = "none";
-})
+    funcion();
+}, 1000);
 
 /**
  * Funcion para mostrar el Header
@@ -159,3 +163,83 @@ function manejarApertura() {
         document.body.innerHTML += '\n <button onclick="window.close()" class="btnHeader">Cerrar</button><br><button onclick="window.opener.location=`https://www.cadif1.com`;window.close();" class="btnHeader">Cambiar index</button>'
     }
 }
+
+// Clase 4
+var funcion = function () {
+    console.log("algo");
+}
+//Elemento section: id: seccion2
+var seccion2 = document.getElementById("seccion2");
+var resultado = [];
+
+seccion2.onclick = () => {
+    console.log("click en seccion 2");
+}
+window.addEventListener("DOMContentLoaded", () => {
+    fetch("https://rickandmortyapi.com/api/character").
+    then(r => r.json()).
+    then(data => {
+      console.log(data);
+      resultado = data.results;
+      console.log(resultado);
+    }).
+    then(() => {
+        //crear la interfaz
+        resultado.forEach(e => {
+            let vida = (e.status == "Alive") ? 'green' : 'red';
+            if(e.origin.name == 'unknown'){
+                e.origin.name = 'Desconocido'
+            }
+            // if (e.origin.name == 'unknown') {
+            //     e.origin.name = 'Desconocido'
+            // }
+            seccion2.innerHTML += `
+            <div class="tarjetas">
+                <div class="tarj-title">${e.name}</div>
+                <div class="tarj-foto">
+                    <img src="${e.image}" style="width: 100%; height: 100%;">
+                </div>
+                <div class="tarj-contenido">
+                    <h5>Especie: ${e.species}</h5>
+                    <h5>Genero: ${e.gender}</h5>
+                    <h5 style="color: ${vida}">Status: ${e.status}</h5>
+                    <h5>Origen: ${e.origin.name}</h5>
+                </div>
+            </div>
+            `
+        });
+    })
+})
+
+document.getElementById("busqueda").addEventListener("keyup", (ev) => {
+    console.log(ev.target.value);
+    console.log(resultado);
+    let filtrado = resultado.filter(e => e.name.includes(ev.target.value));
+    console.log(filtrado);
+    if(filtrado.length > 0){
+        seccion2.innerHTML = '';
+        filtrado.forEach(e => {
+            let vida = (e.status == "Alive") ? 'green' : 'red';
+            if(e.origin.name == 'unknown'){
+                e.origin.name = 'Desconocido'
+            }
+            // if (e.origin.name == 'unknown') {
+            //     e.origin.name = 'Desconocido'
+            // }
+            seccion2.innerHTML += `
+            <div class="tarjetas">
+                <div class="tarj-title">${e.name}</div>
+                <div class="tarj-foto">
+                    <img src="${e.image}" style="width: 100%; height: 100%;">
+                </div>
+                <div class="tarj-contenido">
+                    <h5>Especie: ${e.species}</h5>
+                    <h5>Genero: ${e.gender}</h5>
+                    <h5 style="color: ${vida}">Status: ${e.status}</h5>
+                    <h5>Origen: ${e.origin.name}</h5>
+                </div>
+            </div>
+            `
+        });
+    }
+})
